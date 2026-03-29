@@ -31,7 +31,8 @@ def process_data(FileName, FileName_Sheet):
     df_2 = df_2.apply(lambda x: x.str.replace(r'[\r\n\t]', '', regex=True) if x.dtype == "str" else x)
 
     # убираем скобки перед и после номера кабеля
-    df_2['№  кабеля'] = df_2['№  кабеля'].str.replace('(','').replace(')','')
+    df_2['№  кабеля'] = df_2['№  кабеля'].str.replace('(','')
+    df_2['№  кабеля'] = df_2['№  кабеля'].str.replace(')', '')
 
     # выделяем номер шкафа
     df_2['Откуда'] = '=' + df_2['Откуда'].str.partition('=')[2]
