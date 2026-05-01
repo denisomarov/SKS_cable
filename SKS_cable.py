@@ -9,7 +9,7 @@ from openpyxl.styles import Font, Border, Side, Alignment
 def process_data(FileName, FileName_Sheet):
 
     # Подготовка таблицы к работе
-    df = pd.read_excel(FileName, sheet_name=FileName_Sheet)
+    df = pd.read_excel(FileName, sheet_name=FileName_Sheet, header=1)
     df = df.iloc[0:, 1:]
     df.columns = ['№  кабеля', 'Марка кабеля', 'Жильность x сечение', 'Кол-во использ. Жил', 'Откуда', 'Куда',
                   'Длина проект, м', 'Длина факт, м', 'Примечание']
